@@ -26,13 +26,13 @@ public class PowerSet
      * @exception NullPointerException if <code>S</code> 
      * is not initialized
      */
-    public static void powerSetImplementation1(int[] S) throws NullPointerException
+    public static void powerSetImplementation1(int[] setArray) throws NullPointerException
     {
-        if(S == null) {
+        if(setArray == null) {
         	throw new NullPointerException();
         }
     	// N stores total number of subsets
-        int N = (int)Math.pow(2, S.length);
+        int N = (int)Math.pow(2, setArray.length);
         Set<String> set = new HashSet<>();
 
         // generate each subset one by one
@@ -41,10 +41,10 @@ public class PowerSet
             String subset = "";
 
             // check every bit of i
-            for (int j = 0; j < S.length; j++) {
+            for (int j = 0; j < setArray.length; j++) {
                 // if j'th bit of i is set, append S[j] to subset
                 if ((i & (1 << j)) != 0) {
-                    subset += (S[j]) + " ";
+                    subset += (setArray[j]) + " ";
                 }
             }
 
